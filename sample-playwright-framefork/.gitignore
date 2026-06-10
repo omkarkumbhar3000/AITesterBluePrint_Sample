@@ -1,0 +1,48 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven
+target/
+!target/maven-wagon-*/src/main/java/WEB-INF/web.xml
+
+# IDE
+.eclipse/
+.launch/
+.settings/
+.classpath
+.project
+.factorypath
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Playwright
+playwright-report/
+test-results/
+trace/*
+
+# OS
+.DS_Store
+Thumbs.db

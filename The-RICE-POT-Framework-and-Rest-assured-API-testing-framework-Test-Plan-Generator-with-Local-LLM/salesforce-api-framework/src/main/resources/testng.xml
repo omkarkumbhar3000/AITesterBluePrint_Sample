@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Salesforce API Test Suite" parallel="methods" thread-count="3">
+    <listeners>
+        <listener class-name="com.salesforce.api.listeners.AllureListener"/>
+        <listener class-name="com.salesforce.api.listeners.ExtentReportListener"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Positive Tests">
+        <groups>
+            <run><include name="positive"/></run>
+        </groups>
+        <packages>
+            <package name="com.salesforce.api.tests.positive"/>
+        </packages>
+    </test>
+    <test verbose="2" preserve-order="true" name="Negative Tests">
+        <groups>
+            <run><include name="negative"/></run>
+        </groups>
+        <packages>
+            <package name="com.salesforce.api.tests.negative"/>
+        </packages>
+    </test>
+    <test verbose="2" preserve-order="true" name="Security Tests">
+        <groups>
+            <run><include name="security"/></run>
+        </groups>
+        <packages>
+            <package name="com.salesforce.api.tests.security"/>
+        </packages>
+    </test>
+    <test verbose="2" preserve-order="true" name="Integration Tests">
+        <groups>
+            <run><include name="integration"/></run>
+        </groups>
+        <packages>
+            <package name="com.salesforce.api.tests.integration"/>
+        </packages>
+    </test>
+</suite>

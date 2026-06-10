@@ -1,0 +1,83 @@
+pipeline {
+    agent any
+
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'qa', 'uat', 'prod'], description: 'Target Environment')
+        choice(name: 'TEST_SUITE', choices: ['all', 'positive', 'negative', 'security', 'integration'], description: 'Test Suite to Run')
+    }
+
+    environment {
+        MAVEN_HOME = tool name: 'maven-3', type: 'maven'
+        JAVA_HOME = tool name: 'java-21', type: 'jdk'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean compile -DskipTests'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                script {
+                    def suiteFile = 'src/main/resources/testng.xml'
+                    def mvnCmd = "mvn clean test -P${params.ENVIRONMENT} -DsuiteXmlFile=${suiteFile}"
+                    sh mvnCmd
+                }
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+
+        stage('Generate Allure Report') {
+            steps {
+                sh 'mvn allure:report'
+            }
+            post {
+                always {
+                    publishHTML(target: [
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'target/site/allure-maven-plugin',
+                        reportFiles: 'index.html',
+                        reportName: 'Allure Test Report'
+                    ])
+                }
+            }
+        }
+
+        stage('Archive Extent Report') {
+            steps {
+                archiveArtifacts artifacts: 'reports/extent-report.html', allowEmptyArchive: true
+            }
+        }
+    }
+
+    post {
+        failure {
+            emailext(
+                subject: "[FAILED] Salesforce API Tests - ${env.BUILD_NUMBER}",
+                body: "Pipeline failed: ${env.BUILD_URL}",
+                to: 'qa-team@company.com'
+            )
+        }
+        success {
+            emailext(
+                subject: "[PASSED] Salesforce API Tests - ${env.BUILD_NUMBER}",
+                body: "All tests passed: ${env.BUILD_URL}",
+                to: 'qa-team@company.com'
+            )
+        }
+    }
+}

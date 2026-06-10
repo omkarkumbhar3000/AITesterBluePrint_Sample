@@ -1,0 +1,30 @@
+# Java compiled files
+target/
+bin/
+*.class
+
+# Build artifacts
+build/
+dist/
+*.jar
+*.war
+*.ear
+
+# IDE files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.code-workspace
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
