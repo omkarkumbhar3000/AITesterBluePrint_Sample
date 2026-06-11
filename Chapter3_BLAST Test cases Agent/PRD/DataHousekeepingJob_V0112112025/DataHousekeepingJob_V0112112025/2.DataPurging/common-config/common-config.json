@@ -1,0 +1,199 @@
+{
+  "environment": "Production",
+  "cigateways": {
+    "autoonboardinggateway": "http://10.10.3.9:1337",
+    "adminconsolegateway": "https://10.10.0.240:602",
+    "passwordvault": "https://ciappdevint.arconnet.com:867",
+    "idhubgateway": "https://10.10.0.240:602",
+    "workspacegateway": "https://10.10.0.240:602",
+    "accesscontrol": "https://ciappdevint.arconnet.com:867",
+    "logsgateway": "https://ciappdevint.arconnet.com:867",
+    "sessionmonitoringgateway": "https://ciappdevint.arconnet.com:867",
+    "idgovernancegateway": "https://10.10.0.240:602",
+    "workflowgateway": "http://10.10.1.26:808",
+    "settinggateway": "https://ciappdevint.arconnet.com:867",
+    "signalrhubgateway": "",
+    "acmo": "https://cidevint.arconnet.com:1302",
+    "arcoswebdt": "https://cidevint.arconnet.com:1302",
+    "arconpamapi": "https://cidevintapi.arconnet.com:6302",
+    "ssoenginegateway": "https://ciappdevint.arconnet.com:867",
+    "cihelppageurl": "http://10.10.0.145:4450/",
+    "ArconUrl": "https://www.arconnet.com",
+    "reportgateway": "https://10.10.0.240:602"
+  },
+  "ciapiendpoints": {
+    "ConvergedIdentityUrl": "https://converged-identity-url.com"
+  },
+  "databaseshousekeepin": {
+    "scheduledhour": 0,
+	"cheduledminute":0
+  },
+  "cipaths": {
+    "botexepath": "G:\\NewBot\\Python_recon_collector-Copy-21stAug\\Python_recon_collector-Copy1.exe",
+    "logfilepath": "Log\\Log4net.NetCore.Web.log",
+    "reconciliationexefullpath": "L:\\Shared\\ReconExe\\RecoScheduler.exe",
+	"exportedreportpath": "\\\\10.10.0.240\\WorkflowIntegration\\smWebAPIs\\AdminReports\\downloads"
+  },
+  "Caching": {
+
+    "CacheType": "Redis",
+
+    "CacheServerIp": "10.10.0.208",
+
+    "CacheServerPort": "6379",
+
+    "CacheServerPassword": "pass@123"
+
+  },
+"acceleratorconfig": {
+    "acceleratorhost": "10.10.2.127:6379",
+    "acceleratorun": "zst+0/6NGtEi7Baf2lwEJvCKQRndI65zBq7Q/37H1MGBxLRWCid6z1HKyzUkFsWQQeLz25hapw+BLB4XRnJlRBUshpCv8IPa9iYN3l5T8/N/obTbqsd+eFnopI7oQeuUpFD8lO/YbhmW4GWIRZ6l1lujOfNgzWtu2gRB2CBDEYRnyBjUbN1M9fsi+zwISWQNb3y2Ls7azGyh9FjhSbO+YKj8W2A2nfETVjBsWHA2YP8yJ5vgjrbcfzRMiM/QwQ33NtW2MWirtkC+Y73kUTAUZw==",
+    "acceleratorxwd": "OOOxshUZUK3VFs7S6GNnqSPQ9sS8cklcwU8WxsNGmQH9fmy31ZRrkPNi50xXZeCvQ/0G9ly9/Y2snIReraMZqhZ4EXdRlerSWyQ0Td6+j+UNtzTHprVy8pph4DEIliI/Q+zsiijiivfSACbK85RXiYi2HWwZWF6SKA7wJgVCjTP3YYsdRxjnnz+NI3ZdF4r/68Riqt4Fjkl6j9QIHXD4E63pwyv3588TE7i1OMNiCXtKzTWlEYfJ/w7bQOKbwggnut2A1xNum8naYrLD/8uybg==",
+    "acceleratorpath": "L:\\common-config\\Redis_Cert\\ca_accelerator.pem"
+  },
+   "jwttoken": {
+    "subject": "MicroServiceToken",
+    "rootdomain": "10.10.0.240",
+    "tokenexpiry": "15",
+    "refreshtokenexpiry": "",
+    "tokenencryptionkey": "",
+    "cookiedomain": "10.10.0.240",
+    "cookieexpiry": "24",
+    "addontime": "15",
+    "defaultun": "3Ez6M30ys7gLnzHPQR7/H1qB5lh/6QYa6h7YeOwpLTU=",
+    "defaultxwd": "TGARyg8RmiEc5Ixe+x0XEkue7C9CcUVrpuUZkmQ1s0U=",
+     "Key": "AaUyDwoG40qiR+1yiR9FT3meml6VjAXqrAhwhc7EcSIoRL74YmfBRES0G0x7YrUy6JuILHMo5gAvPv7iqTSm2BRjFblqbBAGwCl4wWNajUY=",
+     "Issuer": "D3kJVbrKwc3l88gGP3l+wX2TD4rOj9mCRk6nhMU7Xmk1x1kcWCuS6xvfxNqgxtfFz3zFHY/Ot9fgBZtuJ/1ooH8GOU6NgKWKEhOFiONIPLs=",
+     "Audience": "D3kJVbrKwc3l88gGP3l+wUofe1+jhm0/cdBYMw/qOeRlP0ZkLZ29Vr33nXiHFG3L",
+     "ValidHours": "24",
+     "encryptingsecret": "JuLpsviY6qzJEGlqe9lpXDVg4kTTMoQYm0OWXTVRMBVruwbvoMdC+6iI10Zt6sYPH1bCa85FPlMxFKbmUsut4XdEOFwGdZMO9fSkG9a2lUY="
+  },
+  "databases":{
+		"adminconsole":"ARCOSDB"
+	},
+  "cimodules": {
+    "autoonboarding": {
+       "addontime": "15"
+    },
+    "adminconsole": {
+
+      "Caching": {
+        "CacheServerIp": "127.0.0.1",
+        "CacheServerPort": "10800",
+        "CacheFlag": false
+      },
+			 "addontime": "15"
+    },
+    "passwordvault": {
+      "AgGridPaginationSize": 50,
+      "ReconcileServiceLimit": 100,
+      "RotateAddToQueueLimit": 30,
+      "EnvelopeAddToQueueLimit": 30,
+      "CanAccessPrePost": true,
+      "XwdEncryptionKey": "JJRUHeXHPw9YY0byBvCsKzd5/h9rfsr58aXSzb0VRDNOE4VOvAoN1KrvWAqvAETj3Cz6PONW1opPGZ/hPCFXVBgLWWFu4JHau8pTZCahe8A=",
+      "XWDConfig": {
+        "MAXPWDAgeRange": 23,
+        "CipherMode": "CBC"
+      },
+			 "addontime": "15"
+    },
+    "workspace": {
+      "cipluginversion": "1.7.0.3",
+      "setCookies": false,
+       "addontime": "15"
+    },
+    "accesscontrol": {
+      "AgGridPaginationSize": 50,
+       "addontime": "15"
+    },
+    "logs": {"addontime": "15"},
+    "sessionmonitoring": {
+      "VideoLogsCloudConfiguration": {
+        "CloudStorageType": "",
+        "CloudStorageUserName": "",
+        "CloudStoragePassword": "",
+        "CloudStorageRegion": "",
+        "addontime": "15"
+      },
+
+      "Watermark": {
+        "_bolIsWaterMarkEnabled": "true",
+        "_waterMarkText": "ARCON PAM",
+        "_waterMarkFontName": "Verdana",
+        "_waterMarkFontColor": "White",
+        "_waterMarkFontSize": "15",
+        "_waterMarkBackColor": "CornflowerBlue",
+        "_waterMarkLocationTop": "100",
+        "_waterMarkLocationLeft": "0",
+        "_bolIsWaterMarkLogoEnabled": "true",
+
+        "_waterMarkLogoFileName": "wlogo.png"
+      },
+
+      "DatabaseServerProperties": {
+        "TimeZone": "Coordinated Universal Time"
+      }
+    },
+    "idgovernance": {
+      "backgroundserviceconfig": {
+        "PeriodicTimerDurationInSeconds": 60,
+        "DataBatchSize": 100
+      },
+		 "addontime": "15"
+    },
+    "workflow": {
+      "IntervalTimeInSeconds": "60",
+       "addontime": "15"
+    },
+    "setting": {
+    },
+    "recoscheduler": {
+      "timerinterval": "24"
+    },
+    "schedulerservice": {
+      "schedulerserviceinseconds": 900
+    },
+    "schedulerconsumerservice": {
+      "timerinterval": 5000
+    },
+    "onboardingschedular": {
+      "intervalinseconds": 30
+    },
+    "jmlservices": {
+      "timerinterval": 10000
+    },
+    "bots": {
+      "source": {
+        "sourcelocation": {
+          "kafka": "true",
+          "file": "false"
+        }
+      },
+      "intervaltimer": 10000,
+      "waitingtimeforxwd": 10000
+    }
+  },
+  "sqlConnSettings": {
+    "sqlConnMinPoolSize": "50",
+    "sqlConnMaxPoolSize": "500",
+    "sqlConnTimeOut": "500"
+  },
+
+  "kafka": {
+    "BootstrapServers": "10.10.2.127:9092,10.10.2.128:9092,10.10.2.129:9092",
+    "SslCaLocation": "C:\\Arcon Solution\\Kafka Cert\\kafka.truststore.pem",
+    "SaslUsername": "vvV79C6JclVWxq86GR70",
+    "SaslPassword": "TnQghGNs0O58HvsUXlG1"
+  },
+  "DelayTime": {
+        "ms": 5000
+    },
+  "datahousekeeping": {
+	  "batchsize": 1000, 
+	  "batchdelay": 500,
+	  "scheduledhour": 8,
+	  "scheduledminute": 10
+	},
+  "MessageBroker": "kafka",
+  "TenantId": ""
+}

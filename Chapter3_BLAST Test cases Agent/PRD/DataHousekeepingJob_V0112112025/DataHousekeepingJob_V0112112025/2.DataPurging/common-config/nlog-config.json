@@ -1,0 +1,758 @@
+{
+  "microservices": {
+    "workspace": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/Workspace/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/Workspace/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "workflow": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/Workflow/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/Workflow/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "adminconsole": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/Adminconsole/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/Adminconsole/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "autoonboarding": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/AutoOnBoarding/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/AutoOnBoarding/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "passwordvault": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/PasswordVault/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/PasswordVault/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "idhub": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/IdHub/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/IdHub/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "accesscontrol": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/AccessControl/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/AccessControl/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "maxLevel": "Warn",
+            "final": "true"
+          }
+        ]
+      }
+    },
+    "sessionmonitoring": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/SessionMonitoring/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/SessionMonitoring/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "idgovernance": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/IdGovernance/nlog.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/IdGovernance/nlog-all-${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          },
+          "ownFile-web": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/IdGovernance/nlog-own-${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "ownFile-web"
+          }
+        ]
+      }
+    },
+    "logs": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/Logs/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/Logs/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "setting": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/Setting/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/Setting/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "maxLevel": "Warn",
+            "final": "true"
+          }
+        ]
+      }
+    },
+    "signalrhub": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/SignalRHub/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/SignalRHub/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "arconpam": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/ArconPam/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/ArconPam/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} | LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "arcoswebdt": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/ArconWebDT/nlog.txt",
+        "extensions": [
+          {
+            "assembly": "NLog.Extensions.Logging"
+          },
+          {
+            "assembly": "NLog.Web.AspNetCore"
+          }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/ArconWebDT/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ClassName : ${logger} | MethodName : ${callsite} |  LineNo : ${callsite-linenumber} | Message : ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "recoscheduler":{
+      "NLog": {
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/RecoScheduler/${gdc:item=ReconId}Recon_log-${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ${logger} | ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "schedulerservice":{
+      "NLog": {
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/SchedulerService/SchedulerService-${gdc:item=SchedulerId}-${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ${logger} | ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "schedulerconsumerservice":{
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/SchedulerConsumerService/nlogSchedulerService.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/SchedulerConsumerService/${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "onboardingengine":{
+      "NLog": {
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/OnboardingEngine/${shortdate}.txt",
+            "layout": "${longdate} | ${uppercase:${level}} | ${logger} | ${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "bots":{
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/Bots/nlog.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/Bots/${gdc:item=BotId}-${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    }
+  },
+  "backgroundservices": {
+    "idgovernance": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/backgroundservices/idgovernance/nlog.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/backgroundservices/idgovernance/nlog-all-${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          },
+          "ownFile-web": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/backgroundservices/idgovernance/nlog-own-${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}|url: ${aspnet-request-url}|action: ${aspnet-mvc-action}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Trace",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "*",
+            "minLevel": "Trace",
+            "writeTo": "ownFile-web"
+          }
+        ]
+      }
+    },
+    "jmldatatransformer": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/backgroundservices/JMLDataTransformer/nlogSchedulerService.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/backgroundservices/JMLDataTransformer/${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "JMLDataTransformer.*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "BusinessLayer.*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "jmlstatuschecker": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/backgroundservices/JMLStatusChecker/nlogSchedulerService.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/backgroundservices/JMLStatusChecker/${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "JMLStatusChecker.*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          }
+        ]
+      }
+    },
+    "himanagementjob": {
+      "NLog": {
+        "internalLogLevel": "Error",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/HIManagementJob/nlogSchedulerService.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/HIManagementJob/${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "maxLevel": "Error",
+            "final": "true"
+          }
+        ]
+      }
+    },
+    "dimanagementjob": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/DIManagementJob/nlogSchedulerService.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/DIManagementJob/${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Error",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "maxLevel": "Error",
+            "final": "true"
+          }
+        ]
+      }
+    }
+  ,
+  "cireportgeneratorjob": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Log}/Mircoservice_InternalLog/CIReportJob/nlogSchedulerService.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH:whenEmpty=Logs}/Microservice_Logs/CIReportJob/${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Info",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "maxLevel": "Error",
+            "final": "true"
+          }
+        ]
+      }
+    },
+"dbbackgroundservice": {
+      "NLog": {
+        "internalLogLevel": "Info",
+        "internalLogFile": "${environment:ARCON_CI_CONFIG_PATH_DBCLN:whenEmpty=Log}/Mircoservice_InternalLog/DataHousekeepingJob/nlogSchedulerService.txt",
+        "extensions": [
+          { "assembly": "NLog.Extensions.Logging" },
+          { "assembly": "NLog.Web.AspNetCore" }
+        ],
+        "targets": {
+          "allfile": {
+            "type": "File",
+            "fileName": "${environment:ARCON_CI_CONFIG_PATH_DBCLN:whenEmpty=Logs}/Microservice_Logs/DataHousekeepingJob/${shortdate}.txt",
+            "layout": "${longdate}|${event-properties:item=EventId_Id}|${uppercase:${level}}|${logger}|${message} ${exception:format=tostring}",
+            "maxArchiveDays": 5
+          }
+        },
+        "rules": [
+          {
+            "logger": "*",
+            "minLevel": "Info",
+            "writeTo": "allfile"
+          },
+          {
+            "logger": "Microsoft.*",
+            "maxLevel": "Error",
+            "final": "true"
+          }
+        ]
+      }
+    } 	
+    } 	
+  }
