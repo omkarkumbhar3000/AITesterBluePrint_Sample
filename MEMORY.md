@@ -1,1 +1,2 @@
 - [GitHub Token Provided by User](github-token-provided-by-user.md) — GitHub personal access token provided by user for repository operations
+- [Environment Variables (.env)](.env) — File containing API tokens for Groq, GitHub, Vercel, and Jira for feature reference
