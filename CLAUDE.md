@@ -7,8 +7,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This repository contains multiple testing frameworks and tools organized by chapter:
 
 1. **Chapter1_sample-playwright-framefork** - Playwright Java UI automation framework
-2. **Chapter2_The-RICE-POT-Framework-and-Rest-assured-API-testing-framework-Test-Plan-Generator-with-Local-LLM** - Test plan generation system with Salesforce API automation framework
-3. **Chapter3_BLAST Test cases Agent** - Test case generation skill from documents
+2. **Chapter2_The-RICE-POT-Framework-and-Rest-assured-API-testing-framework-Test-Plan-Generator-with-Local-LLM** - Test plan generation system with Salesforce API automation framework and reusable skills for test plan/test case generation
+3. **Chapter3_BLAST Test cases Agent** - Lightweight React Vite web application providing a UI for generating test plans and test cases (mock implementation); actual skill-based generation resides in Chapter2
 
 ## Common Commands
 
@@ -49,20 +49,47 @@ mvn allure:report
 allure open target/site/allure-maven-plugin/index.html
 ```
 
-### Test Plan/Case Generation (Chapter2 skills)
+### Test Plan/Case Generation Skills (Chapter2 skills)
+Reusable skills for generating test plans and test cases are located in:
+`Chapter2_The-RICE-POT-Framework-and-Rest-assured-API-testing-framework-Test-Plan-Generator-with-Local-LLM/.opencode/skills/`
+
+- **Test Plan Generator**: `/test-plan-gen @PRD_file`  
+  Generates a comprehensive test plan document (.docx) from a PRD or requirements document.  
+  Input: PRD file (PDF, DOC, DOCX, TXT)  
+  Output: `testplanopencode.docx` (Microsoft Word document)
+
+- **Test Case Generator**: `/test-case-gen @test_plan_or_prd_file`  
+  Generates detailed test cases (.xlsx) from a test plan document or PRD.  
+  Input: Test plan (.docx) or PRD file  
+  Output: `testcasesopencode.xlsx` (Microsoft Excel workbook following General CRUD template)
+
+- **API Framework Generator**: `/gen-api-framework`  
+  Generates starter API testing frameworks (REST Assured, Playwright, or Salesforce) with three modes: reference patterns, framework generation, and CI/CD setup.
+
+These skills can be invoked via Claude Code's slash command interface when the appropriate context is provided.
+
+### BLAST Test Case Agent UI (Chapter3)
 ```bash
-# Generate test plan from PRD
-/test-plan-gen @PRD.txt
+# Install dependencies
+npm install
 
-# Generate test cases from test plan  
-/test-case-gen @testplanopencode.docx
+# Start development server
+npm run dev
 
-# Generate API framework (REST Assured, Playwright, or Salesforce)
-/gen-api-framework
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
+The UI allows users to:
+- Upload a PRD document (PDF, DOC, DOCX, TXT)
+- Enter GROQ API key (stored in localStorage)
+- Select test types (positive, negative, boundary value, equivalence partitioning, decision table, state transition)
+- Generate mock test plan and test cases in markdown format
+- Download generated artifacts
 
-### BLAST Test Case Agent (Chapter3)
-Use the test-case-generator skill when provided with development documents to produce structured test cases.
+> **Note**: The UI in Chapter3 provides a mock implementation for demonstration. Actual skill-based test plan and test case generation is performed using the skills in Chapter2/.opencode/skills.
 
 ## Code Architecture
 
@@ -78,8 +105,8 @@ Use the test-case-generator skill when provided with development documents to pr
   - Test isolation with fresh browser contexts per test
   - Base URL configured in test setup
 
-### Chapter2: Test Generation System
-- **Architecture**: Skill-based generation pipeline
+### Chapter2: Test Generation System & Salesforce API Framework
+- **Architecture**: Skill-based generation pipeline (test plan/test case generation) + Salesforce REST Assured API automation framework
 - **Key Components**:
   - `.opencode/skills/test-plan-generator/`: Creates test plans from PRDs
   - `.opencode/skills/test-case-generator/`: Creates test cases from test plans
@@ -93,17 +120,35 @@ Use the test-case-generator skill when provided with development documents to pr
   - Listeners: AllureListener, ExtentReportListener
   - Configuration: Environment-aware properties (dev/qa/uat/prod)
 
-### Chapter3: BLAST Test Case Agent
-- **Purpose**: Generates ISTQB/ISO-compliant test cases from development documents
-- **Output**: Markdown table format traceable to requirements
-- **Techniques**: Equivalence partitioning, boundary value analysis, decision tables, state transition, error guessing
-- **Quality Rules**: Atomic, independent, verifiable test cases with clear expected results
+### Chapter3: BLAST Test Case Agent UI
+- **Architecture**: React Vite application with state management via React hooks
+- **Key Components**:
+  - `App.jsx`: Main application component handling file upload, API key storage, test type selection, generation triggers
+  - `App.css`: Styling with responsive design, gradient headers, card-based layout
+  - `main.jsx`: Entry point
+  - `index.css`: Global styles
+- **Features**:
+  - Mock test plan/test case generation (simulated API delay)
+  - LocalStorage persistence for GROQ API key
+  - File upload handling for PRD documents
+  - Responsive layout adapting to mobile and desktop
+  - Markdown output ready for import into test management tools
+- **Current Limitations**:
+  - Generation is mocked (does not invoke actual skills from Chapter2)
+  - Output format is markdown only
+  - UI alignment may need refinement per user feedback
 
 ### Shared Infrastructure
 - **.claude/**: Contains Claude Code permission settings (allows Bash access for claude plugin and git commands)
-- **Maven**: Standard build tool across Java projects
+- **.opencode/**: Reusable skills across chapters (test plan generation, test case generation, API framework generation)
+- **Maven**: Standard build tool across Java projects (Chapters 1 and 2)
+- **Vite/npm**: Build tool for Chapter3 UI
 - **TestNG/JUnit**: Test runners with reporting capabilities
-- **Environment Configuration**: Properties files for different environments
+- **Environment Configuration**: Properties files for different environments (Chapter2)
+- **Memory System**: 
+  - `.claude/memory/`: Stores persistent facts as markdown files with frontmatter
+  - `MEMORY.md`: Index file listing all memories for quick reference
+  - Used to store user-provided tokens, environment variables, and project-specific facts
 
 ## Development Guidelines
 
@@ -119,15 +164,26 @@ Use the test-case-generator skill when provided with development documents to pr
 - Leverage built-in validation methods in ResponseValidator
 - Generate reports using mvn allure:report or mvn extent:reports
 
-### When Generating Test Artifacts (Chapter2/3)
+### When Working with Generation Skills (Chapter2)
 - Always start with PRD.txt as source of truth
-- Use /test-plan-gen to create test plan document
-- Use /test-case-gen to create executable test cases
+- Use /test-plan-gen to create test plan document (.docx)
+- Use /test-case-gen to create executable test cases (.xlsx)
 - For API automation, use /gen-api-framework to generate starter framework
 - Validate generated test cases against requirements for traceability
 
+### When Working with BLAST Test Case Agent UI (Chapter3)
+- The app is lightweight and built with modern React/Vite stack
+- To extend functionality:
+  - Replace mock generation with actual skill invocations from Chapter2/.opencode/skills
+  - Modify output format generators to produce Word (.docx) or Excel (.xlsx) as desired
+  - Enhance UI with animations, improved alignment, and creative visual elements
+  - Persist additional configuration beyond GROQ key (e.g., default test types, output preferences)
+- Maintain responsiveness and performance when adding features
+- Follow existing code style and component structure
+
 ### Cross-Chapter Considerations
 - Each chapter is largely self-contained with its own build system
-- Shared concepts: Maven build, test reporting, environment configuration
+- Shared concepts: Maven build (Ch1/C2), Vite/npm build (C3), test reporting, environment configuration
 - Skills in .opencode/ directories are reusable across chapters
 - When switching contexts, check for chapter-specific README/PRD files for setup instructions
+- The UI in Chapter3 serves as a frontend for the generation skills in Chapter2; integration would provide a seamless end-to-end experience

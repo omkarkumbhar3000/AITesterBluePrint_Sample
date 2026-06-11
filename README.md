@@ -60,5 +60,6 @@ AI Tester 3x/
 ├── .git                                           # Git repository
 ├── .gitignore                                     # Git ignore rules
 ├── CLAUDE.md                                      # Claude Code guidance
-└� README.md                                        # This file
+└── README.md                                        # This file
+```
 ```
