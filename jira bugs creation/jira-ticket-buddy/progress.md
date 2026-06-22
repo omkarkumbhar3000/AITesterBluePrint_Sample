@@ -14,3 +14,6 @@
   - Utilities: jiraApi.js (test/connect/create), groqApi.js (GROQ LLM ticket generation)
   - Light theme only, professional styling
 - Verdict: builds and dev-serves cleanly
+- Deployed to Vercel: https://jiraticketbuddy.vercel.app
+  - Env vars set: VITE_JIRA_URL, VITE_JIRA_EMAIL, VITE_JIRA_TOKEN, VITE_JIRA_PROJECT_KEY
+  - Build time: 10s, 70KB gzip
