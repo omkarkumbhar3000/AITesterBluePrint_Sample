@@ -15,7 +15,7 @@ Repo-scoped guidance. See `CLAUDE.md` for detailed commands and architecture per
 | `Chapter6_*` – `Chapter8_MCP/` | Empty / placeholder | — |
 | `Project_Job_Tracker_AI/` | Resume files (`.docx`) | — |
 | `jira bugs creation/` | Jira config (URL, token in `.env`), BLAST framework files (`architecture/`, `tools/`, `gemini.md`), 30 sample tickets (KAN-2→KAN-31) in `summary.md` | — |
-| `jira-ticket-buddy/` | Jira Ticket Buddy React app (Vite, Login + Dashboard, GROQ + Jira API integration) + BLAST planning files | npm (Vite) |
+| `jira bugs creation/jira-ticket-buddy/` | Jira Ticket Buddy React app (Vite, Login + Dashboard, GROQ + Jira API integration) | npm (Vite) |
 
 ## Commands
 
@@ -37,8 +37,8 @@ npm install && npm run dev          # dev server (default :5173)
 npm run build                       # production build
 npm run lint                        # ESLint (flat config)
 
-# jira-ticket-buddy: Jira + GROQ ticket generator
-cd jira-ticket-buddy
+# jira bugs creation/jira-ticket-buddy: Jira + GROQ ticket generator
+cd jira\ bugs\ creation\jira-ticket-buddy
 npm install && npm run dev          # dev server (default :5173)
 npm run build                       # production build
 ```
