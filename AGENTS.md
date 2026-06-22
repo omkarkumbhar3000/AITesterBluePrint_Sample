@@ -4,15 +4,17 @@ Repo-scoped guidance. See `CLAUDE.md` for detailed commands and architecture per
 
 ## Structure
 
-8 chapters + ancillary dirs. Only **Ch1–Ch3** have real content; Ch4–Ch8 are empty stubs:
+8 chapters + ancillary dirs. Only **Ch1–Ch3** have meaningful content:
 | Dir | Content | Build |
 |---|---|---|
-| `Chapter1_*` | Playwright Java UI tests (POM, JUnit 5) | Maven (Java 11) |
-| `Chapter2_*` | OpenCode skills (test-plan/test-case/API-framework gen) + Salesforce REST Assured framework | Maven (Java 21, TestNG) |
-| `Chapter3_*` | React Vite app (mock test gen UI) + BLAST skill definition | npm |
-| `Chapter4_n8n_*` — `Chapter8_MCP/` | Empty / placeholder | — |
-| `Project_Job_Tracker_AI/` | Resume files only | — |
-| `jira bugs creation/` | Empty | — |
+| `Chapter1_*` | Playwright Java UI tests (POM, JUnit 5, Java 11) | Maven |
+| `Chapter2_*` | OpenCode skills (test-plan/test-case/API-framework gen) + Salesforce REST Assured framework (Java 21, TestNG) | Maven |
+| `Chapter3_*` | React Vite app "B.L.A.S.T Test Case Agent" (mocked test gen UI) + skill definition | npm |
+| `Chapter4_n8n_*` | README only — placeholder | — |
+| `Chapter5_langflow_*` | Flakey test case execution reports | — |
+| `Chapter6_*` – `Chapter8_MCP/` | Empty / placeholder | — |
+| `Project_Job_Tracker_AI/` | Resume files (`.docx`) | — |
+| `jira bugs creation/` | Jira config (URL, token in `.env`), BLAST framework files (`architecture/`, `tools/`, `gemini.md`), 30 sample tickets (KAN-2→KAN-31) in `summary.md` | — |
 
 ## Commands
 
@@ -28,11 +30,11 @@ mvn clean test -Pqa                 # QA env (default)
 mvn clean test -Pdev -Dgroups=positive  # specific env + group
 mvn allure:report                   # generate Allure report
 
-# Ch3: React Vite UI
+# Ch3: React Vite UI (deployed on Vercel as "testcasebuddy")
 cd Chapter3_*/test-generator-app
 npm install && npm run dev          # dev server (default :5173)
 npm run build                       # production build
-npm run lint                        # ESLint
+npm run lint                        # ESLint (flat config)
 ```
 
 ## OpenCode skills (Ch2)
@@ -56,10 +58,13 @@ The global skills at `~/.config/opencode/skills/` (e.g. `restassured`) are separ
 - Ch1 UI tests **require** the app under test at `http://localhost:3000` — no app, no tests
 - Ch2 Salesforce framework **requires** real Salesforce credentials in `environments/<env>.properties` to execute
 - Ch3 test generation is **mocked** (simulated delay, no actual LLM call)
-- No CI workflows in root `.github/workflows/` (Ch2 has its own at `salesforce-api-framework/.github/workflows/`)
+- `jira bugs creation/.env` contains a live Jira token — handle with care
+- `jira bugs creation/.env` uses non-standard format (`key = value` with spaces around `=`, not `KEY=VALUE`) — Python `dotenv` won't parse it; use regex or manual parsing
+- Jira project key is `KAN` (from URL `omkar-kumbhar.atlassian.net/jira/software/projects/KAN/`)
+- No CI workflows anywhere in the repo
 
 ## Conventions
 
 - Playwright locator priority: `getByLabel()` > `getByRole()` > CSS/XPath
-- Chapter2 AGENTS.md exists for Restful Booker API-specific quirks (418 teapot, DELETE→201, Basic Auth only)
+- `Chapter2_*/AGENTS.md` documents Restful Booker API-specific quirks (418 teapot, DELETE→201, Basic Auth only)
 - No cross-chapter dependencies — each chapter is self-contained with its own build system
