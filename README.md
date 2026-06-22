@@ -46,9 +46,11 @@ This repository contains multiple testing frameworks and AI-powered testing tool
 
 ### Jira Ticket Buddy
 - **Location**: `jira bugs creation/jira-ticket-buddy/`
-- **Description**: React Vite app for generating Jira bug tickets using GROQ AI. Login + Dashboard UI with module and test-type selection. Creates tickets directly in Jira via REST API.
+- **Description**: React Vite app for generating Jira tickets (Epic, Bug, Story, Task) using GROQ AI. Login page collects Jira + GROQ credentials; Dashboard page has Issue Type, Module/Page (12 options), Test Coverage multi-select (16 types), and ticket count slider (1–20). Creates tickets directly in Jira via REST API with issue-type-aware prompts (Bug → steps/expected/actual, Story → user story, Task → acceptance criteria, Epic → scope/goal).
+- **Flow**: Login (credentials) → Dashboard (selectors + generate)
 - **Build**: `npm install && npm run dev` (default `:5173`)
-- **Deploy**: Vercel-ready with `vercel.json`
+- **Deploy**: [jiraticketbuddy.vercel.app](https://jiraticketbuddy.vercel.app) — Vercel-ready with `vercel.json`
+- **Env**: Uses `VITE_` prefix for Vercel build-time variables (`.env`); GROQ key entered manually at Login
 
 ## Key Commands
 
