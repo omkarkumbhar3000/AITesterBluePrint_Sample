@@ -13,12 +13,12 @@ export async function testJiraConnection(jiraUrl, authHeader) {
   return res.json()
 }
 
-export async function createJiraIssue(jiraUrl, authHeader, projectKey, fields) {
+export async function createJiraIssue(jiraUrl, authHeader, projectKey, issueType, fields) {
   const url = `${jiraUrl.replace(/\/+$/, '')}/rest/api/2/issue`
   const body = {
     fields: {
       project: { key: projectKey },
-      issuetype: { name: 'Bug' },
+      issuetype: { name: issueType },
       summary: fields.summary,
       description: fields.description,
       priority: fields.priority ? { name: fields.priority } : undefined,

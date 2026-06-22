@@ -62,7 +62,7 @@
 }
 
 .dashboard-main {
-  max-width: 900px;
+  max-width: 960px;
   width: 100%;
   margin: 1.5rem auto;
   padding: 0 1.5rem;
@@ -81,40 +81,44 @@
   gap: 1.25rem;
 }
 
+.panel-row {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.panel-row .panel-section {
+  flex: 1;
+  min-width: 160px;
+}
+
 .panel-section h2 {
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #64748b;
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.5rem;
 }
 
-.module-tabs {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.module-tab {
-  padding: 0.5rem 1.25rem;
+.form-select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
   border: 1px solid #d1d5db;
   border-radius: 8px;
-  background: #ffffff;
-  color: #475569;
+  background: #f8fafc;
   font-size: 0.875rem;
-  font-weight: 500;
+  color: #1e293b;
   cursor: pointer;
-  transition: all 0.15s;
+  outline: none;
+  transition: border-color 0.15s;
+  appearance: auto;
 }
 
-.module-tab.active {
-  background: #2563eb;
-  color: #ffffff;
+.form-select:focus {
   border-color: #2563eb;
-}
-
-.module-tab:hover:not(.active) {
-  background: #f1f5f9;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  background: #ffffff;
 }
 
 .count-control {
@@ -220,6 +224,16 @@
 .cell-key {
   font-weight: 600;
   color: #2563eb;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #475569;
 }
 
 .priority-badge {
