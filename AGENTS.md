@@ -4,17 +4,18 @@ Repo-scoped guidance. See `CLAUDE.md` for detailed commands and architecture per
 
 ## Structure
 
-8 chapters + ancillary dirs. Only **Ch1–Ch3** have meaningful content:
+8 chapters + ancillary dirs. Only **Ch1–Ch3** have meaningful content; Ch4–Ch8 are placeholders.
 | Dir | Content | Build |
 |---|---|---|
 | `Chapter1_*` | Playwright Java UI tests (POM, JUnit 5, Java 11) | Maven |
 | `Chapter2_*` | OpenCode skills (test-plan/test-case/API-framework gen) + Salesforce REST Assured framework (Java 21, TestNG) | Maven |
-| `Chapter3_*` | React Vite app "B.L.A.S.T Test Case Agent" (mocked test gen UI) + skill definition | npm |
+| `Chapter3_*` | React Vite app "B.L.A.S.T Test Case Agent" (mocked test gen UI) + standalone `SKILL.md` (same `test-case-generator` name as Ch2) | npm |
 | `Chapter4_n8n_*` | README only — placeholder | — |
 | `Chapter5_langflow_*` | Flakey test case execution reports | — |
 | `Chapter6_*` – `Chapter8_MCP/` | Empty / placeholder | — |
 | `Project_Job_Tracker_AI/` | Resume files (`.docx`) | — |
 | `jira bugs creation/` | Jira config (URL, token in `.env`), BLAST framework files (`architecture/`, `tools/`, `gemini.md`), 30 sample tickets (KAN-2→KAN-31) in `summary.md` | — |
+| `jira-ticket-buddy/` | Jira Ticket Buddy React app (Vite, Login + Dashboard, GROQ + Jira API integration) + BLAST planning files | npm (Vite) |
 
 ## Commands
 
@@ -35,6 +36,11 @@ cd Chapter3_*/test-generator-app
 npm install && npm run dev          # dev server (default :5173)
 npm run build                       # production build
 npm run lint                        # ESLint (flat config)
+
+# jira-ticket-buddy: Jira + GROQ ticket generator
+cd jira-ticket-buddy
+npm install && npm run dev          # dev server (default :5173)
+npm run build                       # production build
 ```
 
 ## OpenCode skills (Ch2)
@@ -45,6 +51,8 @@ Located at `Chapter2_*/.opencode/skills/`:
 - **gen-api-framework**: generates REST Assured / Playwright / Salesforce starter frameworks
 
 The global skills at `~/.config/opencode/skills/` (e.g. `restassured`) are separate copies, not managed here.
+
+**Note:** Ch3 also has a `SKILL.md` at its root with the same `test-case-generator` name — a standalone definition (ISTQB markdown output), not part of `.opencode/skills/`.
 
 ## Secrets & memory
 

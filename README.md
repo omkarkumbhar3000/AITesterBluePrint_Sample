@@ -44,6 +44,12 @@ This repository contains multiple testing frameworks and AI-powered testing tool
 - **Location**: `Chapter8_MCP/`
 - **Status**: Placeholder (empty)
 
+### Jira Ticket Buddy
+- **Location**: `jira-ticket-buddy/`
+- **Description**: React Vite app for generating Jira bug tickets using GROQ AI. Login + Dashboard UI with module and test-type selection. Creates tickets directly in Jira via REST API.
+- **Build**: `npm install && npm run dev` (default `:5173`)
+- **Deploy**: Vercel-ready with `vercel.json`
+
 ## Key Commands
 
 | Directory | Command |
@@ -51,6 +57,7 @@ This repository contains multiple testing frameworks and AI-powered testing tool
 | `Chapter1_sample-playwright-framefork/` | `mvn clean test -Dtest=LoginTest#shouldLoginWithValidCredentials` |
 | `Chapter2_*/salesforce-api-framework/` | `mvn clean test -Pqa -Dgroups=positive` |
 | `Chapter3_*/test-generator-app/` | `npm install && npm run dev` |
+| `jira-ticket-buddy/` | `npm install && npm run dev` |
 
 ## Repository Structure
 
@@ -65,7 +72,8 @@ AI Tester 3x/
 ├── Chapter7_RAG/                          # Placeholder
 ├── Chapter8_MCP/                          # Placeholder
 ├── Project_Job_Tracker_AI/                # Resume files
-├── jira bugs creation/                    # Empty
+├── jira bugs creation/                    # Jira config, BLAST framework, 30 sample tickets
+├── jira-ticket-buddy/                     # Jira Ticket Buddy React app (Vite, GROQ + Jira API)
 ├── .claude/                               # Claude Code settings/git permissions
 ├── AGENTS.md                              # Quick-start guidance for agents
 ├── CLAUDE.md                              # Detailed commands & architecture
