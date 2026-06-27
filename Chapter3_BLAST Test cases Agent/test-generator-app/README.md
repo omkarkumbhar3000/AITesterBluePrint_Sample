@@ -1,16 +1,36 @@
-# React + Vite
+# BLAST Test Case Agent
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Vite web application providing a UI for generating test plans and test cases (mock implementation).
 
-Currently, two official plugins are available:
+## Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This app provides a frontend interface for:
+- Uploading PRD documents (PDF, DOC, DOCX, TXT)
+- Selecting test types (positive, negative, boundary value, equivalence partitioning, decision table, state transition)
+- Generating mock test plans and test cases in markdown format
+- Downloading generated artifacts
 
-## React Compiler
+> **Note**: Generation is currently mocked (simulated delay, no actual LLM call). Integration with the Chapter2 OpenCode skills is planned.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup
 
-## Expanding the ESLint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Opens at `http://localhost:5173`.
+
+## Build
+
+```bash
+npm run build
+npm run lint
+```
+
+## Tech Stack
+
+- React 18 + Vite
+- JavaScript (JSX)
+- ESLint (flat config)
+- localStorage for API key persistence

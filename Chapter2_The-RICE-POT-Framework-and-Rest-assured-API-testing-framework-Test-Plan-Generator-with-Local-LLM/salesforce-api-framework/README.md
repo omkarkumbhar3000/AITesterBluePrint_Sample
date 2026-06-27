@@ -12,7 +12,7 @@ Enterprise-grade API Automation Framework for Salesforce CRM APIs.
 - **Jackson 2.17.2** — JSON serialization/deserialization
 - **Lombok** — Boilerplate reduction
 - **Log4j2** — Logging (request, response, error)
-- **Allure Reports** — Rich test reporting with attachments
+- **Allure Reports 2.27.0** — Rich test reporting with attachments
 - **Extent Reports** — HTML dashboard
 - **Apache POI** — Excel test data reader
 - **JavaFaker** — Dynamic test data generation
